@@ -1,0 +1,5 @@
+@-moz-document url-prefix(about:home), url-prefix(about:newtab) {
+ body{
+  background: url(/home/max/Documents/fighting_temeraire.jpg) !important ; background-size: cover !important ; 
+}
+}
