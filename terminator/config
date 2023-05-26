@@ -2,7 +2,11 @@
 [keybindings]
 [profiles]
   [[default]]
-    cursor_color = "#aaaaaa"
+    background_color = "#24273a"
+    cursor_shape = underline
+    cursor_color = "#f4dbd6"
+    foreground_color = "#cad3f5"
+    palette = "#494d64:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#b8c0e0:#5b6078:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#a5adcb"
   [[Catpuccin_Flavour]]
     background_color = "#eff1f5"
     cursor_color = "#dc8a78"
@@ -15,13 +19,16 @@
     palette = "#51576d:#e78284:#a6d189:#e5c890:#8caaee:#f4b8e4:#81c8be:#b5bfe2:#626880:#e78284:#a6d189:#e5c890:#8caaee:#f4b8e4:#81c8be:#a5adce"
   [[Catppuccin_Macchiato]]
     background_color = "#24273a"
+    cursor_shape = underline
     cursor_color = "#f4dbd6"
     foreground_color = "#cad3f5"
     palette = "#494d64:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#b8c0e0:#5b6078:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#a5adcb"
+    use_system_font = False
   [[Catppuccin_Mocha]]
     cursor_color = "#aaaaaa"
   [[Catppuccin_Latte]]
     cursor_color = "#aaaaaa"
+  [[Catpuccin_Latte]]
 [layouts]
   [[default]]
     [[[window0]]]
