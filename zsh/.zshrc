@@ -115,7 +115,8 @@ hblock
 alias ll='ls -a'
 alias vim=nvim
 alias upgrape='sudo apt update && sudo apt upgrade'
-
+alias kitcar_src='source /opt/ros/noetic/setup.zsh'
+alias build='mkdir build && cd build && cmake ..'
 autoload -U compinit
 compinit
 
