@@ -117,6 +117,9 @@ alias vim=nvim
 alias upgrape='sudo apt update && sudo apt upgrade'
 alias kitcar_src='source /opt/ros/noetic/setup.zsh'
 alias build='mkdir build && cd build && cmake ..'
+alias add='/home/max/scripts/save_install.sh'
+
+
 autoload -U compinit
 compinit
 
