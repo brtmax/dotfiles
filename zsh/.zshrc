@@ -118,7 +118,8 @@ alias upgrape='sudo apt update && sudo apt upgrade'
 alias kitcar_src='source /opt/ros/noetic/setup.zsh'
 alias build='mkdir build && cd build && cmake ..'
 alias add='/home/max/scripts/save_install.sh'
-
+alias rmu='export ROS_MATER_URI='http://10.10.0.1:11311''
+alias car_name="export CAR_NAME="dr_drift""
 
 autoload -U compinit
 compinit

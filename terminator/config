@@ -1,4 +1,5 @@
 [global_config]
+  suppress_multiple_term_dialog = True
 [keybindings]
 [profiles]
   [[default]]
@@ -22,7 +23,7 @@
     cursor_shape = underline
     cursor_color = "#f4dbd6"
     foreground_color = "#cad3f5"
-    palette = "#494d64:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#b8c0e0:#5b6078:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#a5adcb"
+    palette = "#494d64:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#deeeff:#b8c0e0:#5b6078:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#deeeff:#a5adcb"
     use_system_font = False
   [[Catppuccin_Mocha]]
     cursor_color = "#aaaaaa"
