@@ -1,3 +1,5 @@
 wget
 arandr
 
+ranger
+
