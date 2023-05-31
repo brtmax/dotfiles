@@ -54,6 +54,9 @@ bindsym --release $mod+Print exec shutter -s
 # kill focused window
 bindsym $mod+q kill
 
+# Start ranger
+bindsym $mod+b exec ranger
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
