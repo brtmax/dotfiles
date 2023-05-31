@@ -120,7 +120,7 @@ alias build='mkdir build && cd build && cmake ..'
 alias add='/home/max/scripts/save_install.sh'
 alias rmu='export ROS_MATER_URI='http://10.10.0.1:11311''
 alias car_name="export CAR_NAME="dr_drift""
-alias r='ranger'
+alias b='ranger'
 autoload -U compinit
 compinit
 
