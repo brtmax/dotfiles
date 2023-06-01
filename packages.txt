@@ -5,3 +5,5 @@ ranger
 
 maim
 
+evince
+
