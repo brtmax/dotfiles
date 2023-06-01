@@ -111,7 +111,7 @@ export KITCAR_REPO_PATH=/home/max/kitcar
 # Updated unified hostfile
 hblock
 
-
+alias open='evince'
 alias ll='ls -a'
 alias vim=nvim
 alias upgrape='sudo apt update && sudo apt upgrade'
