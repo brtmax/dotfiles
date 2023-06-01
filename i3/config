@@ -156,7 +156,7 @@ bindsym $mod+1 workspace number 1 ter
 bindsym $mod+2 workspace number 2 work
 bindsym $mod+3 workspace number 3 browser
 bindsym $mod+4 workspace number 4 code
-bindsym $mod+5 workspace number 5 teams
+bindsym $mod+5 workspace number 5 source
 bindsym $mod+6 workspace number 6 KITcar
 bindsym $mod+7 workspace number 7 anki
 bindsym $mod+8 workspace number 8 misc
