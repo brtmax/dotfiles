@@ -9,3 +9,5 @@ evince
 
 libnotify-dev
 
+tk
+
