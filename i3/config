@@ -26,6 +26,9 @@ font pango:monospace 8
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+exec --no-startup-id i3-battery-popup -n -D -L 20 -l 10
+for_window [title="Battery Warning"] sticky enable
+
 exec_always feh --bg-scale /home/max/Documents/wallpaper.jpeg
 exec --no-startup-id nitrogen --set-auto /home/max/Documents/wallpaper.jpeg --head=0
 
