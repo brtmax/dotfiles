@@ -11,3 +11,5 @@ libnotify-dev
 
 tk
 
+doxygen
+
