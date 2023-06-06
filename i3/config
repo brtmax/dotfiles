@@ -80,8 +80,12 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# Anki pix2tex
+# pix2tex
 bindsym --release Ctrl+Shift+a exec /home/max/scripts/pix2tex.sh
+
+# pix2char
+bindsym --release Ctrl+Shift+u exec /home/max/scripts/pix2char.sh
+
 
 # adapt monitor brightness
 #bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 3%-
