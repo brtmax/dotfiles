@@ -111,6 +111,11 @@ export KITCAR_REPO_PATH=/home/max/kitcar
 # Updated unified hostfile
 hblock
 
+
+
+alias ga='git add .'
+alias gau='git add -u'
+alias gp='git push'
 alias open='evince'
 alias ll='ls -a'
 alias vim=nvim
