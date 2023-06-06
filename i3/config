@@ -83,8 +83,6 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 # Anki pix2tex
 bindsym --release Ctrl+Shift+a exec /home/max/scripts/pix2tex.sh
 
-
-
 # adapt monitor brightness
 #bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 3%-
 #bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -q set 3%+
