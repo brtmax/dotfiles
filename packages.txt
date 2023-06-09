@@ -15,3 +15,5 @@ doxygen
 
 tesseract-ocr
 
+fzf
+
