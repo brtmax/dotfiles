@@ -17,3 +17,5 @@ tesseract-ocr
 
 fzf
 
+tmux
+
