@@ -19,3 +19,5 @@ fzf
 
 tmux
 
+copyq
+
