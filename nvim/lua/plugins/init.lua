@@ -104,8 +104,10 @@ local default_plugins = {
     end,
   },
 
+  -- Lazy load nvim-treesitter
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     init = function()
       require("core.utils").lazy_load "nvim-treesitter"
     end,
@@ -117,6 +119,17 @@ local default_plugins = {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "syntax")
       require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+
+  -- Lazy load nvim-orgmode
+  {
+    "nvim-orgmode/orgmode",
+    lazy = false,
+    ft = { "org" },
+    config = function()
+      require('orgmode').setup_ts_grammar() -- Add this line to initialize the parser grammar
+      require('orgmode').setup{}
     end,
   },
 
@@ -256,6 +269,7 @@ local default_plugins = {
 
   {
     "nvim-telescope/telescope.nvim",
+    lazy = false,
     cmd = "Telescope",
     init = function()
       require("core.utils").load_mappings "telescope"
@@ -296,3 +310,26 @@ local config = require("core.utils").load_config()
 --end
 
 require("lazy").setup(default_plugins, config.lazy_nvim)
+
+-- init.lua
+
+-- Load custom treesitter grammar for org filetype
+require('orgmode').setup_ts_grammar()
+
+-- Treesitter configuration
+require('nvim-treesitter.configs').setup {
+  -- If TS highlights are not enabled at all, or disabled via `disable` prop,
+  -- highlighting will fallback to default Vim syntax highlighting
+  highlight = {
+    enable = true,
+    -- Required for spellcheck, some LaTex highlights and
+    -- code block highlights that do not have ts grammar
+    additional_vim_regex_highlighting = {'org'},
+  },
+  ensure_installed = {'org'}, -- Or run :TSUpdate org
+}
+
+require('orgmode').setup({
+  org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
+  org_default_notes_file = '~/Dropbox/org/refile.org',
+})
