@@ -20,6 +20,16 @@ local default_plugins = {
   },
 
   {
+    "nvim-neorg/neorg",
+    run = ":Neorg sync-parsers",
+    config = function()
+      require("neorg").setup {
+        -- configuration here
+      }
+    end,
+  },
+
+  {
     "NvChad/ui",
     branch = "v2.0",
     lazy = false,
