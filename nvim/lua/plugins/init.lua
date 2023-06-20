@@ -1,3 +1,7 @@
+vim.g.mapleader = ' '
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
+
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
 local default_plugins = {
@@ -332,4 +336,10 @@ require('nvim-treesitter.configs').setup {
 require('orgmode').setup({
   org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
   org_default_notes_file = '~/Dropbox/org/refile.org',
+})
+
+require('cmp').setup({
+  sources = {
+    { name = 'orgmode' }
+  }
 })
