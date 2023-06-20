@@ -21,3 +21,5 @@ tmux
 
 copyq
 
+luarocks
+
