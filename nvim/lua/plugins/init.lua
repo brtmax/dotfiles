@@ -32,6 +32,7 @@ local default_plugins = {
             config = {
               workspaces = {
                 notes = "~/notes",
+                engineering_daybook = "~/engineering-daybook/"
               },
             },
           },
