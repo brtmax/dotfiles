@@ -113,7 +113,7 @@ hblock
 
 
 
-alias ga='git add .'
+alias ga='git add -p'
 alias gau='git add -u'
 alias gp='git push'
 alias open='evince'
