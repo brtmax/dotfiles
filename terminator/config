@@ -1,13 +1,17 @@
 [global_config]
   suppress_multiple_term_dialog = True
 [keybindings]
+  go_up = <Super>Up
+  go_down = <Super>Down
+  go_left = <Super>Left
+  go_right = <Super>Right
 [profiles]
   [[default]]
     background_color = "#24273a"
     cursor_shape = underline
     cursor_color = "#f4dbd6"
     foreground_color = "#cad3f5"
-    palette = "#494d64:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#b8c0e0:#5b6078:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#a5adcb"
+    palette = "#494d64:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#555753:#b8c0e0:#5b6078:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#555753:#a5adcb"
   [[Catpuccin_Flavour]]
     background_color = "#eff1f5"
     cursor_color = "#dc8a78"
