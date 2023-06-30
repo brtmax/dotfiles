@@ -23,3 +23,5 @@ copyq
 
 luarocks
 
+lm-sensors
+
