@@ -1,5 +1,6 @@
 local opt = vim.opt
 local g = vim.g
+local wo = vim.wo
 local config = require("core.utils").load_config()
 
 -------------------------------------- globals -----------------------------------------
@@ -31,6 +32,7 @@ opt.mouse = "a"
 opt.number = true
 opt.numberwidth = 2
 opt.ruler = false
+wo.relativenumber = true
 
 -- disable nvim intro
 opt.shortmess:append "sI"

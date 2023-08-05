@@ -25,3 +25,5 @@ luarocks
 
 lm-sensors
 
+graphviz
+
