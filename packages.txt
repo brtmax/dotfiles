@@ -27,3 +27,5 @@ lm-sensors
 
 graphviz
 
+autorandr
+
