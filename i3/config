@@ -189,9 +189,9 @@ bindsym $mod+Shift+8 move container to workspace number 8 misc
 bindsym $mod+Shift+9 move container to workspace number 9 gpt
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# add HDMI monitor when connected
-bindsym $mod+m exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DP-2-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2-2 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2-3 --off
-
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
