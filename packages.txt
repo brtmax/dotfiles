@@ -31,3 +31,5 @@ autorandr
 
 xcb
 
+libxcb-randr0-dev
+
