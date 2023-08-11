@@ -33,3 +33,5 @@ xcb
 
 libxcb-randr0-dev
 
+ros-noetic-image-pipeline
+
