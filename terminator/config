@@ -11,6 +11,7 @@
     cursor_shape = underline
     cursor_color = "#f4dbd6"
     foreground_color = "#cad3f5"
+    scrollback_infinite = True
     palette = "#494d64:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#555753:#b8c0e0:#5b6078:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#555753:#a5adcb"
   [[Catpuccin_Flavour]]
     background_color = "#eff1f5"
