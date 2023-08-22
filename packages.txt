@@ -41,3 +41,5 @@ openvpn
 
 xmobar
 
+iftop
+
