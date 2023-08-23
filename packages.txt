@@ -47,3 +47,5 @@ bluez-utils
 
 bluez-tools
 
+blueman
+
