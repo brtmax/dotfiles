@@ -45,3 +45,5 @@ iftop
 
 bluez-utils
 
+bluez-tools
+
