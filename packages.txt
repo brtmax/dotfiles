@@ -43,3 +43,5 @@ xmobar
 
 iftop
 
+bluez-utils
+
