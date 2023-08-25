@@ -49,3 +49,5 @@ bluez-tools
 
 blueman
 
+xournal
+
