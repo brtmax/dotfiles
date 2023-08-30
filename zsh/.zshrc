@@ -66,7 +66,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source /opt/ros/noetic/setup.zsh
+source /home/max/repos/zsh-z/zsh-z.plugin.zsh
 
+autoload -U compinit; compinit
+zstyle ':completion:*' menu select
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
