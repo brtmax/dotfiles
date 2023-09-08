@@ -127,6 +127,7 @@ alias rmu='export ROS_MATER_URI='http://10.10.0.1:11311''
 alias car_name="export CAR_NAME="dr_drift""
 alias b='ranger'
 alias bluetooth="blueman-manager"
+alias note='vim ~/engineering-daybook/refile.org'
 autoload -U compinit
 compinit
 
