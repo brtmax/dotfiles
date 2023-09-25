@@ -128,6 +128,7 @@ alias car_name="export CAR_NAME="dr_drift""
 alias b='ranger'
 alias bluetooth="blueman-manager"
 alias note='vim ~/engineering-daybook/refile.org'
+alias mount='sudo mount -t davfs https://srv1.mrt.kit.edu/user/carolo-storage webdav'
 autoload -U compinit
 compinit
 
