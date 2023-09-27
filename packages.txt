@@ -53,3 +53,5 @@ xournal
 
 pv
 
+libgtk2.0-dev
+
