@@ -57,3 +57,5 @@ libgtk2.0-dev
 
 pkg-config
 
+tree
+
