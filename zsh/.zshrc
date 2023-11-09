@@ -131,7 +131,7 @@ alias note='vim ~/engineering-daybook/refile.org'
 alias mount='sudo mount -t davfs https://srv1.mrt.kit.edu/user/carolo-storage webdav'
 autoload -U compinit
 compinit
-
+alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
