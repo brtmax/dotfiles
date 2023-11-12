@@ -132,7 +132,7 @@ alias mount='sudo mount -t davfs https://srv1.mrt.kit.edu/user/carolo-storage we
 autoload -U compinit
 compinit
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
-alias cb='snap run clipboard
+alias cb='snap run clipboard'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
