@@ -133,8 +133,7 @@ autoload -U compinit
 compinit
 alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"'
 alias cb='snap run clipboard'
-alias todo="topydo"
-alias topydo="topydo columns"
+alias todo="topydo columns"
 alias lock="xtrlock"
 
 
