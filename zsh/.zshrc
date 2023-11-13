@@ -135,7 +135,7 @@ alias bat='upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percent
 alias cb='snap run clipboard'
 alias todo="topydo columns"
 alias lock="xtrlock"
-
+alias pdf="pandoc"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
