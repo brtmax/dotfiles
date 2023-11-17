@@ -69,3 +69,5 @@ xtrlock
 
 pandoc
 
+speedtest-cli
+

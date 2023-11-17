@@ -16,7 +16,7 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#494d64:#ed8796:#8bd5ca:#eed49f:#8aadf4:#f5bde6:#555753:#b8c0e0:#5b6078:#ed8796:#8bd5ca:#eed49f:#8aadf4:#f5bde6:#555753:#a5adcb"
+    palette = "#494d64:#ed8796:#8bd5ca:#eed49f:#8aadf4:#f5bde6:#888a85:#b8c0e0:#5b6078:#ed8796:#8bd5ca:#eed49f:#8aadf4:#f5bde6:#888a85:#a5adcb"
   [[Catpuccin_Flavour]]
     background_color = "#eff1f5"
     cursor_color = "#dc8a78"
