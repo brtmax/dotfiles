@@ -73,3 +73,5 @@ speedtest-cli
 
 gparted
 
+tcpdump
+
