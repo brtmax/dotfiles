@@ -75,3 +75,5 @@ gparted
 
 tcpdump
 
+openssh-client
+
