@@ -81,3 +81,5 @@ openssh-server
 
 software-properties-common
 
+ros-dev-tools
+
