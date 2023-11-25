@@ -83,3 +83,5 @@ software-properties-common
 
 ros-dev-tools
 
+lxd
+
