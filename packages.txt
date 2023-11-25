@@ -85,3 +85,5 @@ ros-dev-tools
 
 lxd
 
+davfs2
+
