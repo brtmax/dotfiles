@@ -87,3 +87,5 @@ lxd
 
 davfs2
 
+kubernetes
+
