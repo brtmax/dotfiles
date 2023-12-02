@@ -66,7 +66,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source /opt/ros/noetic/setup.zsh
+source /opt/ros/humble/setup.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
