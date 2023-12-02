@@ -89,3 +89,5 @@ davfs2
 
 kubernetes
 
+libglib2.0-0
+

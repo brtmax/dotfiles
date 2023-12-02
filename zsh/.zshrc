@@ -120,7 +120,6 @@ alias open='evince'
 alias ll='ls -a'
 alias vim=nvim
 alias upgrape='sudo apt update && sudo apt upgrade'
-alias kitcar_src='source /opt/ros/noetic/setup.zsh'
 alias build='mkdir build && cd build && cmake ..'
 alias add='/home/max/scripts/save_install.sh'
 alias rmu='export ROS_MATER_URI='http://10.10.0.1:11311''
@@ -140,4 +139,3 @@ alias pdf="pandoc"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source /home/max/kitcar/kitcar-machine-learning/init/bashrc # for kitcar-machine-learning repository
