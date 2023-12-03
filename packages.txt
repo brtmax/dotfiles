@@ -91,3 +91,5 @@ kubernetes
 
 libglib2.0-0
 
+xclip
+
