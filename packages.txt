@@ -95,3 +95,5 @@ xclip
 
 ffmpeg
 
+gimp
+
