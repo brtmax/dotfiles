@@ -135,6 +135,7 @@ alias cb='snap run clipboard'
 alias todo="topydo columns"
 alias lock="xtrlock"
 alias pdf="pandoc"
+alias build="rm -rf build && mkdir build && cd build && cmake .. && make"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
