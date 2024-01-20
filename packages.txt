@@ -99,3 +99,5 @@ gimp
 
 libc++-dev
 
+autoconf
+
