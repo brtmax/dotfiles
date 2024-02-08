@@ -31,3 +31,5 @@ end
 
 dofile(vim.g.base46_cache .. "defaults")
 --require "plugins"
+--
+vim.cmd[[colorscheme tokyonight-night]]

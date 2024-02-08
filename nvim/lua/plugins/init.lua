@@ -293,6 +293,13 @@ local default_plugins = {
     end,
   },
 
+  {
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+  },
+
   -- Only load whichkey after all the gui
   {
     "folke/which-key.nvim",
@@ -343,3 +350,4 @@ require('cmp').setup({
     { name = 'orgmode' }
   }
 })
+
