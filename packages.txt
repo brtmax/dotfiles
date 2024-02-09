@@ -105,3 +105,5 @@ tzdata
 
 valgrind
 
+lcov
+
