@@ -12,17 +12,6 @@ local default_plugins = {
     lazy = false, -- Set lazy to false to load the plugin on startup
   },
 
-  -- nvchad plugins
-  { "NvChad/extensions", branch = "v2.0" },
-
-  {
-    "NvChad/base46",
-    branch = "v2.0",
-    build = function()
-      require("base46").load_all_highlights()
-    end,
-  },
-
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
@@ -43,42 +32,6 @@ local default_plugins = {
           },
         },
       }
-    end,
-  },
-
-
-  {
-    "NvChad/ui",
-    branch = "v2.0",
-    lazy = false,
-    config = function()
-      require "nvchad_ui"
-    end,
-  },
-
-  {
-    "NvChad/nvterm",
-    init = function()
-      require("core.utils").load_mappings "nvterm"
-    end,
-    config = function(_, opts)
-      require "base46.term"
-      require("nvterm").setup(opts)
-    end,
-  },
-
-  {
-    "NvChad/nvim-colorizer.lua",
-    init = function()
-      require("core.utils").lazy_load "nvim-colorizer.lua"
-    end,
-    config = function(_, opts)
-      require("colorizer").setup(opts)
-
-      -- execute colorizer as soon as possible
-      vim.defer_fn(function()
-        require("colorizer").attach_to_buffer(0)
-      end, 0)
     end,
   },
 
