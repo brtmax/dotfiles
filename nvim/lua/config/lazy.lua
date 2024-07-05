@@ -24,33 +24,12 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- add your plugins here
- {
-    "ThePrimeagen/vim-be-good",
-    lazy = false, -- Set lazy to false to load the plugin on startup
+    -- import your plugins
+    { import = "plugins" },
   },
-{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-
-
-{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-
-  {
-    "nvim-telescope/telescope.nvim", tag = '0.1.8'
-  },
-
- {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-  },
--- Load core configuration
- },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "tokyonight-night" } },
+  install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
-
-vim.cmd[[colorscheme tokyonight]]

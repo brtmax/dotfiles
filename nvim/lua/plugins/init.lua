@@ -196,7 +196,7 @@ local config = require("core.utils").load_config()
 require("lazy").setup(default_plugins, config.lazy_nvim)
 
 -- init.lua
-
+vim.cmd[[colorscheme tokyonight-night]]
 -- Treesitter configuration
 require('nvim-treesitter.configs').setup {
   -- If TS highlights are not enabled at all, or disabled via `disable` prop,
