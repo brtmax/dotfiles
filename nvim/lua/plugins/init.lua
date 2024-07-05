@@ -12,30 +12,7 @@ local default_plugins = {
     lazy = false, -- Set lazy to false to load the plugin on startup
   },
 
-  {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    lazy = false,
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-              workspaces = {
-                notes = "~/notes",
-                engineering_daybook = "~/engineering-daybook/"
-              },
-            },
-          },
-        },
-      }
-    end,
-  },
-
-  {
+   {
     "nvim-tree/nvim-web-devicons",
     opts = function()
       return { override = require("nvchad_ui.icons").devicons }
@@ -48,33 +25,8 @@ local default_plugins = {
 
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
    -- Lazy load nvim-treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    lazy = false,
-    init = function()
-      require("core.utils").lazy_load "nvim-treesitter"
-    end,
-    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    build = ":TSUpdate",
-    opts = function()
-      return require "plugins.configs.treesitter"
-    end,
-    config = function(_, opts)
-      dofile(vim.g.base46_cache .. "syntax")
-      require("nvim-treesitter.configs").setup(opts)
-    end,
-  },
-
-  -- Lazy load nvim-orgmode
-  {
-    "nvim-orgmode/orgmode",
-    lazy = false,
-    ft = { "org" },
-    config = function()
-      require('orgmode').setup_ts_grammar() -- Add this line to initialize the parser grammar
-      require('orgmode').setup{}
-    end,
-  },
+  
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 
   -- git stuff
   {
@@ -245,9 +197,6 @@ require("lazy").setup(default_plugins, config.lazy_nvim)
 
 -- init.lua
 
--- Load custom treesitter grammar for org filetype
-require('orgmode').setup_ts_grammar()
-
 -- Treesitter configuration
 require('nvim-treesitter.configs').setup {
   -- If TS highlights are not enabled at all, or disabled via `disable` prop,
@@ -260,15 +209,4 @@ require('nvim-treesitter.configs').setup {
   },
   ensure_installed = {'org'}, -- Or run :TSUpdate org
 }
-
-require('orgmode').setup({
-  org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
-  org_default_notes_file = '~/Dropbox/org/refile.org',
-})
-
-require('cmp').setup({
-  sources = {
-    { name = 'orgmode' }
-  }
-})
-
+vim.cmd[[colorscheme tokyonight-night]]
