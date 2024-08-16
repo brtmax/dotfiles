@@ -11,7 +11,7 @@
 default_border pixel 1
 default_floating_border pixel 1
 
-
+exec --no-startup-id redshift-gtk
 exec_always "setxkbmap -layout us -option ctrl:swapcaps"
 # i3 config file (v4)
 #

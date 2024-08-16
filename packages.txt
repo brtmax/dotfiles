@@ -109,3 +109,5 @@ lcov
 
 cloc
 
+torbrowser-launcher
+
