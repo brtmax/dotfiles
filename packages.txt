@@ -111,3 +111,5 @@ cloc
 
 torbrowser-launcher
 
+alacritty
+
