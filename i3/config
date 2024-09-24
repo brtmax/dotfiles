@@ -177,12 +177,12 @@ set $ws10 "10"
 bindsym $mod+1 workspace number 1 ter
 bindsym $mod+2 workspace number 2 work
 bindsym $mod+3 workspace number 3 browser
-bindsym $mod+4 workspace number 4 code
+bindsym $mod+4 workspace number 4 zotero
 bindsym $mod+5 workspace number 5 lib
 bindsym $mod+6 workspace number 6 KITcar
 bindsym $mod+7 workspace number 7 anki
 bindsym $mod+8 workspace number 8 misc
-bindsym $mod+9 workspace number 9 gpt
+bindsym $mod+9 workspace number 9 misc
 bindsym $mod+p workspace number 10 log
 
 # move focused container to workspace
