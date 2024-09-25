@@ -53,7 +53,7 @@ install_agnoster_theme() {
   # Download and place the agnoster theme in the themes directory
   ZSH_THEMES_DIR=~/.oh-my-zsh/themes
   mkdir -p $ZSH_THEMES_DIR
-  curl -fsSL https://github.com/pixegami/terminal-profile/blob/main/configs/pixegami-agnoster.zsh-theme -o $ZSH_THEMES_DIR/pixegami-agnoster.zsh-theme
+  wget https://github.com/pixegami/terminal-profile/blob/main/configs/pixegami-agnoster.zsh-theme -O $ZSH_THEMES_DIR/pixegami-agnoster.zsh-theme
 
   echo "Agnoster theme installed successfully."
 }
