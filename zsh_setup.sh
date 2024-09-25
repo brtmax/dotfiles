@@ -46,11 +46,23 @@ install_zsh_plugins() {
   echo "Zsh plugins installed successfully."
 }
 
+# Function to install the agnoster theme
+install_agnoster_theme() {
+  echo "Installing Agnoster theme..."
+
+  # Download and place the agnoster theme in the themes directory
+  ZSH_THEMES_DIR=~/.oh-my-zsh/themes
+  mkdir -p $ZSH_THEMES_DIR
+  curl -fsSL https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme -o $ZSH_THEMES_DIR/agnoster.zsh-theme
+
+  echo "Agnoster theme installed successfully."
+}
+
 # Execute the functions
 install_zsh
 install_oh_my_zsh
 install_zsh_plugins
-
+install_agnoster_theme
 # Set Zsh as the default shell
 chsh -s $(which zsh)
 
