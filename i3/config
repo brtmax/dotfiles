@@ -189,7 +189,7 @@ bindsym $mod+p workspace number 10 log
 bindsym $mod+Shift+1 move container to workspace number 1 ter
 bindsym $mod+Shift+2 move container to workspace number 2 mercedes
 bindsym $mod+Shift+3 move container to workspace number 3 mail
-bindsym $mod+Shift+4 move container to workspace number 4 vscode
+bindsym $mod+Shift+4 move container to workspace number 4 zotero
 bindsym $mod+Shift+5 move container to workspace number 5 teams
 bindsym $mod+Shift+6 move container to workspace number 6 KITcar
 bindsym $mod+Shift+7 move container to workspace number 7 anki
