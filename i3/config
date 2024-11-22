@@ -163,7 +163,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:Terminal"
-set $ws2 "2:Mercedes"
+set $ws2 "2:Code"
 set $ws3 "3:Mail"
 set $ws4 "4:Teams"
 set $ws5 "5:KITcar"
@@ -187,7 +187,7 @@ bindsym $mod+p workspace number 10 log
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1 ter
-bindsym $mod+Shift+2 move container to workspace number 2 mercedes
+bindsym $mod+Shift+2 move container to workspace number 2 code
 bindsym $mod+Shift+3 move container to workspace number 3 mail
 bindsym $mod+Shift+4 move container to workspace number 4 zotero
 bindsym $mod+Shift+5 move container to workspace number 5 teams
