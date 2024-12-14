@@ -8,11 +8,9 @@ install zsh and oh my zsh
 
 ln nvim, tmux, zsh
 
-zsh clone autosuggestions
-zsh clone syntax highlighting
-zsh clone pixegami-agnoster theme
-
 nvim latex and markdown rendering
+
+tmux
 
 
 ctrl swap 
