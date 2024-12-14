@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Ensure script stops on error
+set -e
+
+# Define the path to the packages list
+PACKAGES_FILE="$HOME/packages.txt"
+
+# Check if the packages.txt file exists
+if [[ ! -f "$PACKAGES_FILE" ]]; then
+    echo "Error: $PACKAGES_FILE not found!"
+    exit 1
+fi
+
+# Read the list of packages from packages.txt
+echo "Reading packages from $PACKAGES_FILE..."
+
+# Install packages using pacman (official repo)
+echo "Installing official packages via pacman..."
+while IFS= read -r package; do
+    if [[ -n "$package" && "$package" != \#* ]]; then
+        # Check if the package is already installed
+        if pacman -Qi "$package" &>/dev/null; then
+            echo "$package is already installed."
+        else
+            echo "Installing $package..."
+            sudo pacman -S --noconfirm --needed "$package"
+        fi
+    fi
+done < "$PACKAGES_FILE"
+
+# Install packages using yay (AUR packages)
+echo "Installing AUR packages via yay..."
+while IFS= read -r package; do
+    if [[ -n "$package" && "$package" != \#* ]]; then
+        # Check if the package is an AUR package
+        if yay -Qi "$package" &>/dev/null; then
+            echo "$package is already installed (AUR)."
+        else
+            echo "Installing $package (AUR)..."
+            yay -S --noconfirm --needed "$package"
+        fi
+    fi
+done < "$PACKAGES_FILE"
+
+echo "Package installation complete!"
+
