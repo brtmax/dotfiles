@@ -1,0 +1,76 @@
+wpa_supplicant -B -i wlan0 -x <(wpa_passphrase <SSID> <KEY>)
+
+fdisk /dev/nvme0
+
+n, +1G, t, 1
+n, +8G, t, 19
+n, default, default,
+w
+
+mkfs.fat -F32 /dev/nvme0n1p1
+mkfs.ext4 /dev/nvme0n1p3
+mkswap /dev/nvme0n1p2
+
+mount /dev/nvme0n1p3 /mnt
+swapon /dev/nvme0n1p2
+
+pacstrap /mnt base base-devel linux-lts linux-firmware dialog iw wpa_supplicant networkmanager vim
+
+# Check if everything has been created
+ls /mnt 
+
+genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# Check for errors in fstab file
+# cat /mnt/etc/fstab
+
+arch-chroot /mnt
+
+echo "HOSTNAME" > /etc/hostname
+
+vim /etc/hosts
+# Setup hosts file
+
+vim /etc/locale.gen
+
+locale-gen
+
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
+
+ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+
+date
+
+hwclock --systohc --utc
+
+passwd
+
+useradd -mg users -G wheel,storage,power -s /bin/bash new_user
+passwd new_user
+chage -d 0 new_user
+
+pacman -S sudo
+
+visudo
+# ADD
+%wheel ALL=(ALL) ALL
+
+pacman -S dhcpcd
+systemctl enable dhcpcd
+
+pacman -S grub efibootmgr dosfstools os-prober mtools
+
+mkdir /boot/EFI
+
+mount /dev/nvme0n1p1 /boot/EFI
+
+grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+exit
+
+unmount -a
+
+reboot
