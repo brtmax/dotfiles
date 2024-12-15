@@ -224,6 +224,8 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 
+bindsym Ctrl+Shift+s exec ~/dotfiles/scripts/screenshot_clipboard.sh
+
 bar swaybar_command waybar
 
 include /etc/sway/config.d/*
