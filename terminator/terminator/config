@@ -12,7 +12,7 @@
     background_image = /home/max/Downloads/wallpaper.jpeg
     show_titlebar = False
     scrollbar_position = hidden 
-    scrollback_lines = infinite
+    scrollback_lines = 100000
     title_use_system_font = False
     title_font = Sans 1
     window_border = False
