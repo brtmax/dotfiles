@@ -1,6 +1,9 @@
 sway
 waybar
 nvim
+grim
+slurp
+swappy
 tmux
 alacritty
 btop
