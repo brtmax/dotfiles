@@ -54,5 +54,6 @@ tree
 libc++-dev
 xclip
 meson
+aichat
 ninja
 docker
