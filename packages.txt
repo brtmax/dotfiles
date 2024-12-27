@@ -7,10 +7,9 @@ grim
 slurp
 swappy
 tmux
-alacritty
 btop
 yazi
-terminator
+ghostty
 zsh
 oh-my-zsh-git
 pulseaudio
