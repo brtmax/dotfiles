@@ -1,3 +1,5 @@
+calcurse
+circumflex
 sway
 waybar
 nvim

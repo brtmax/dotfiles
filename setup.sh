@@ -1,32 +1,27 @@
-essential packages:
-install sway waybar nvim tmux alacritty btop yazi terminator zsh oh-my-zsh-git pulseaudio nerdfonts wmenu?? firefox git git-dev cmake yay wdisplays doxygen fzf tree libc++-dev xclip meson ninja docker
-
+>> Chronjob for engineering daybook
+>> Circumflex, and add circumflex favourites
+>> Einklappen? von Texten 
 clone dotfiles
 clone engineering-daybook
+
+essential packages:
+install sway waybar nvim tmux alacritty btop yazi terminator zsh oh-my-zsh-git pulseaudio nerdfonts wmenu?? firefox git git-dev cmake yay wdisplays doxygen fzf tree libc++-dev xclip meson ninja docker
 
 install zsh and oh my zsh
 
 ln nvim, tmux, zsh
 
-nvim latex and markdown rendering
-
 tmux
 
 
-ctrl swap 
-
-alias setup from alias file: 
-yazi=b
 Themes? 
 
 wallpaper in sway fullscreen mode enable
 
-download and setup wallpaper 
+download and setup wallpaper repo 
 
 idle/lockscreen stuff
 Setup nvim as yazi editor
-
-firefox setup with theme and add ons
 
 gpt cli
 

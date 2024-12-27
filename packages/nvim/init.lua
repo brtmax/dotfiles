@@ -864,6 +864,13 @@ require("lazy").setup({
     opts = { signs = false },
   },
 
+  {
+    "nvim-neorg/neorg",
+    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    version = "*", -- Pin Neorg to the latest stable release
+    config = true,
+  },
+
   { -- Collection of various small independent plugins/modules
     "echasnovski/mini.nvim",
     config = function()
