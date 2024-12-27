@@ -4,3 +4,8 @@ window-theme = ghostty
 confirm-close-surface = false
 shell-integration-features = no-title
 
+# Navigate window splits
+keybind = alt+h=goto_split:left
+keybind = alt+j=goto_split:bottom
+keybind = alt+k=goto_split:top
+keybind = alt+l=goto_split:right

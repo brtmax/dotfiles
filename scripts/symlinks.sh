@@ -14,6 +14,29 @@ declare -A DESTINATIONS=(
     ["yazi"]="$HOME/.config/yazi"
 )
 
+# Function to create symlink with check
+create_symlink() {
+    local source="$1"
+    local target="$2"
+
+    # Check if the target exists
+    if [ -e "$target" ]; then
+        echo "File or directory $target already exists."
+        read -p "Do you want to remove it and create a symlink? (y/n): " choice
+        if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+            echo "Removing $target..."
+            sudo rm -rf "$target"
+            ln -s "$source" "$target"
+            echo "Symlink created: $target -> $source"
+        else
+            echo "Skipping symlink creation for $target."
+        fi
+    else
+        ln -s "$source" "$target"
+        echo "Symlink created: $target -> $source"
+    fi
+}
+
 # Symlink each package's configuration
 for PACKAGE in "${!DESTINATIONS[@]}"; do
     SRC="$DOTFILES_DIR/packages/$PACKAGE"
@@ -22,7 +45,7 @@ for PACKAGE in "${!DESTINATIONS[@]}"; do
     if [ -d "$SRC" ]; then
         echo "Creating symlink for $PACKAGE -> $DEST"
         mkdir -p "$DEST"
-        ln -sfn "$SRC"/* "$DEST/"
+        create_symlink "$SRC" "$DEST/"
     else
         echo "Warning: $SRC does not exist, skipping."
     fi
@@ -32,7 +55,7 @@ done
 echo "Symlinking top-level scripts to ~/bin (requires ~/bin to exist)"
 mkdir -p "$HOME/bin"
 for SCRIPT in "$DOTFILES_DIR/scripts"/*; do
-    ln -sfn "$SCRIPT" "$HOME/bin/$(basename "$SCRIPT")"
+    create_symlink "$SCRIPT" "$HOME/bin/$(basename "$SCRIPT")"
 done
 
 echo "Symlinking complete!"
