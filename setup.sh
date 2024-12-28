@@ -1,10 +1,11 @@
 >> Chronjob for engineering daybook
 >> Circumflex, and add circumflex favourites
 >> Einklappen? von Texten 
+>> Save online articles? 
 clone dotfiles
 clone engineering-daybook
 
-
+cp agnoster zsh theme to location
 
 wallpaper in sway fullscreen mode enable
 
