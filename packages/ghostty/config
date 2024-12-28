@@ -1,8 +1,15 @@
 window-padding-x = 2
+font-size = 11
 mouse-hide-while-typing = true
 window-theme = ghostty
 confirm-close-surface = false
 shell-integration-features = no-title
+
+theme = GruvboxDarkHard
+shell-integration-features = no-cursor,sudo,no-title
+window-colorspace = "display-p3"
+background = 1C2021
+adjust-cell-height = 35%
 
 # Navigate window splits
 keybind = alt+h=goto_split:left
