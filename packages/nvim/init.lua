@@ -1059,5 +1059,22 @@ require("lazy").setup({
   },
 })
 
+vim.api.nvim_create_autocmd("BufNewFile", {
+  pattern = "*.md",
+  callback = function()
+    local template_path = "~/.config/nvim/templates/markdown_template.md"
+    local template = io.open(vim.fn.expand(template_path), "r")
+    local content = template:read("*a")
+    template:close()
+
+    -- Replace {{date}} with the current date
+    local current_date = os.date("%Y-%m-%d")
+    content = content:gsub("{{date}}", current_date)
+
+    vim.api.nvim_buf_set_lines(0, 0, 0, false, vim.split(content, "\n"))
+  end
+})
+
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
