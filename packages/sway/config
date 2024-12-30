@@ -17,7 +17,6 @@ set $right l
 # Your preferred terminal emulator
 set $term ghostty 
 # Your preferred application launcher
-set $menu wmenu-run
 
 input "type:keyboard" {
 	xkb_options "ctrl:nocaps"
