@@ -122,7 +122,7 @@
     {
         "ID": 42535071,
         "Title": "Intel's $475M error: the silicon behind the Pentium division bug",
-        "Points": 50,
+        "Points": 311,
         "User": "gslin",
         "Time": 1735422511,
         "TimeAgo": "",
@@ -132,12 +132,12 @@
         "Domain": "righto.com",
         "Comments": null,
         "Content": "",
-        "CommentsCount": 8
+        "CommentsCount": 85
     },
     {
         "ID": 42535453,
         "Title": "All You Need Is 4x 4090 GPUs to Train Your Own Model",
-        "Points": 17,
+        "Points": 107,
         "User": "sabareesh",
         "Time": 1735425456,
         "TimeAgo": "",
@@ -147,7 +147,7 @@
         "Domain": "sabareesh.com",
         "Comments": null,
         "Content": "",
-        "CommentsCount": 21
+        "CommentsCount": 114
     },
     {
         "ID": 42531217,
@@ -223,5 +223,20 @@
         "Comments": null,
         "Content": "",
         "CommentsCount": 12
+    },
+    {
+        "ID": 42535217,
+        "Title": "Fish 4.0: The Fish of Theseus",
+        "Points": 801,
+        "User": "jdxcode",
+        "Time": 1735423635,
+        "TimeAgo": "",
+        "Type": "",
+        "URL": "https://fishshell.com/blog/rustport/",
+        "Level": 0,
+        "Domain": "fishshell.com",
+        "Comments": null,
+        "Content": "",
+        "CommentsCount": 170
     }
 ]
