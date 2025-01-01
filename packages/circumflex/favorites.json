@@ -358,5 +358,50 @@
         "Comments": null,
         "Content": "",
         "CommentsCount": 49
+    },
+    {
+        "ID": 42565606,
+        "Title": "30% Drop In o1-Preview Accuracy When Putnam Problems Are Slightly Variated",
+        "Points": 256,
+        "User": "optimalsolver",
+        "Time": 1735734078,
+        "TimeAgo": "",
+        "Type": "",
+        "URL": "https://openreview.net/forum?id=YXnwlZe0yf\u0026noteId=yrsGpHd0Sf",
+        "Level": 0,
+        "Domain": "openreview.net",
+        "Comments": null,
+        "Content": "",
+        "CommentsCount": 218
+    },
+    {
+        "ID": 42564687,
+        "Title": "Books I Loved Reading in 2024",
+        "Points": 179,
+        "User": "simplegeek",
+        "Time": 1735719369,
+        "TimeAgo": "",
+        "Type": "",
+        "URL": "https://thoughts.wyounas.com/p/books-i-enjoyed-most-in-2024",
+        "Level": 0,
+        "Domain": "wyounas.com",
+        "Comments": null,
+        "Content": "",
+        "CommentsCount": 63
+    },
+    {
+        "ID": 42506984,
+        "Title": "That's not an abstraction, that's a layer of indirection",
+        "Points": 588,
+        "User": "fagnerbrack",
+        "Time": 1735103218,
+        "TimeAgo": "",
+        "Type": "",
+        "URL": "https://fhur.me/posts/2024/thats-not-an-abstraction",
+        "Level": 0,
+        "Domain": "fhur.me",
+        "Comments": null,
+        "Content": "",
+        "CommentsCount": 226
     }
 ]
