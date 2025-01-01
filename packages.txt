@@ -1,3 +1,4 @@
+solaar
 wofi
 calcurse
 circumflex
