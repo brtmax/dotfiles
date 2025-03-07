@@ -64,5 +64,6 @@ install_zsh_plugins
 install_agnoster_theme
 # Set Zsh as the default shell
 chsh -s $(which zsh)
+mv zsh/.zshrc ~/.zshrc
 
 echo "Zsh, Oh My Zsh, and plugins are now installed. Zsh is set as the default shell."
