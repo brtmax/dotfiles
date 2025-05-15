@@ -1,33 +1,130 @@
-// -*- mode: jsonc -*-
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 24, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    "spacing": 0,
+
     "modules-left": [
-        "custom/arch",
-        "sway/workspaces"
-    ],
-    "modules-center": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad",
         "sway/window"
     ],
+    "modules-center": [
+        "clock",
+        "battery",
+    ],
     "modules-right": [
-        "idle_inhibitor",
-        "pulseaudio",
-        "network",
+        "custom/keyboard-layout",
+        "custom/weather",
+        "temperature",
         "cpu",
         "memory",
-        "temperature",
-        "hyprland/language",
-        "battery",
-        "battery#bat2",
-        "clock"
+        "backlight",
+        "pulseaudio",
+        "network",
+        "idle_inhibitor",
+        "bluetooth",
+        "custom/power"
     ],
-    //Modules configuration
 
-    "include": [
-		"~/.config/waybar/modules.json"
-	]
+    "temperature": {
+	    "tooltip": false,
+	    "interval": 30,
+	    "critical-threshold": 70,
+	    "format": "{icon} {temperatureC}",
+	    "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip-format": "power manager",
+        "on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Shutdown' 'shutdown -h now' -b 'Restart' 'shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'Hibernate' 'systemctl hibernate' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
+    },
+
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "~/.local/bin/wttrbar --date-format '%A' --lang de --location Bologna",
+        "return-type": "json"
+    },
+
+    "custom/keyboard-layout": {
+        "interval": 1,
+        "exec": "swaymsg -t get_inputs | jq -r '.[] | select(.type == \"keyboard\") | .xkb_active_layout_name'",
+    },
+
+    "clock": {
+        "interval": 30,
+        "format": "{:%a, %d %b %Y | %H:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": "🧮: {usage}%",
+    },
+
+    "memory": {
+        "interval": 1,
+        "format": "💾:{}%"
+    },
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["🔅", "🔆"]
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "interval": 1,
+        "format": "{icon} {capacity}%",
+        "format-charging": "⚡ {capacity}%",
+        "format-icons": ["📛", "🪫", "🔋", "🟢", "🟢"]
+    },
+
+    "network": {
+        "format-wifi": "🛜 ({signalStrength}%) {essid}",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "🔇 {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "🎧",
+            "hands-free": "",
+            "default": ["🔈" ,"🔉" ,"🔊"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "🔓",
+            "deactivated": "🔐"
+        }
+    },
+
+    "bluetooth": {
+        "format": "🔗 {status}",
+        "format-connected": "🔗 {device_alias}",
+        "format-connected-battery": "🔗 {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+
+        "on-click": "bluetoothctl  connect DC:2C:26:17:E2:3B", // Keyboard
+        "on-right-click": "bluetoothctl  connect 74:5C:4B:D7:8A:E5" // Earbuds
+    }
 }

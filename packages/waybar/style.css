@@ -1,107 +1,111 @@
 * {
-    /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
-    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11px;
-    transition: background-color .3s ease-out;
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 window#waybar {
-    background: rgba(26, 27, 38, 0.75);
-    color: #c0caf5;
-    font-family: 
-        SpaceMono Nerd Font,
-        feather;
-    transition: background-color .5s;
+    background: @theme_base_color;
+    color: @theme_text_color;
 }
 
-.modules-left,
-.modules-center,
-.modules-right
-{
-    background: rgba(0, 0, 8, .7);
-    margin: 3px 6px;
-    padding: 0 3px;
-    border-radius: 11px;
-}
-.modules-left {
-    padding: 0;
-}
-.modules-center {
-    padding: 0 10px;
+window#waybar.hidden {
+    opacity: 0.2;
 }
 
-#clock,
+#window {
+    font-family: 'Sarasa Gothic SC', sans-serif;
+}
+
+#clock {
+    min-width: 140px;
+    padding: 0px 10px;
+    padding-top: 5px;
+    border-radius: 4px;
+}
+
+#custom-power {
+    font-weight: bold;
+    padding: 0px 10px;
+    border-radius: 4px;
+}
+
+#custom-keyboard-layout {
+    margin-top: 4px;
+}
+
 #battery,
 #cpu,
 #memory,
-#disk,
-#temperature,
 #backlight,
 #network,
+#bluetooth
 #pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
 #mode,
 #idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#language,
-#mpd {
-    padding: 0 6px;
-    border-radius: 15px;
+#keyboard-state,
+#temperature,
+#custom-weather,
+#custom-keyboard-layout,
+#scratchpad {
+    padding: 0px 8px;
 }
 
-#clock:hover,
-#battery:hover,
-#cpu:hover,
-#memory:hover,
-#disk:hover,
-#temperature:hover,
-#backlight:hover,
-#network:hover,
-#pulseaudio:hover,
-#wireplumber:hover,
-#custom-media:hover,
-#tray:hover,
-#mode:hover,
-#idle_inhibitor:hover,
-#scratchpad:hover,
-#power-profiles-daemon:hover,
-#language:hover,
-#mpd:hover {
-    background: rgba(26, 27, 38, 0.9);
+#battery.critical:not(.charging) {
+    background-color: #b54f4f;
+    animation: blink 0.5s linear infinite alternate;
 }
 
-
-#workspaces button {
-  background: transparent;
-  font-family:
-    SpaceMono Nerd Font,
-    feather;
-  font-weight: 900;
-  font-size: 13pt;
-  color: #c0caf5;
-  border:none;
-  border-radius: 15px;
+@keyframes blink {
+    to {
+        background-color: @theme_base_color;
+        color: @theme_text_color;
+    }
 }
 
-#workspaces button.active {
-    background: #13131d; 
+#workspaces {
+    margin-right: 8px;
 }
 
-#workspaces button:hover {
-  background: #11111b;
-  color: #cdd6f4;
-  box-shadow: none;
+#workspaces button,
+#mode {
+    padding: 0px 8px;
+    padding-top: 1px;
+    margin-bottom: -1px;
+    background-color: @theme_unfocused_base_color;
+    border: 1px solid @unfocused_borders;
+    color: @theme_unfocused_text_color;
 }
 
-#custom-arch {
-    margin-left: 0px;
-    padding: 0 11px;
-    font-size: 25px;
-    transition: color .5s;
+#workspaces button.focused {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_text_color;
+    border: 1px solid @borders;
+    box-shadow: inset 0 -4px @wm_shadow;
+    font-weight: 900;
 }
-#custom-arch:hover {
-    color: #1793d1;
+
+#workspaces button.urgent {
+    background-color: @error_color;
 }
+
+/* Briefly, the colors are:
+    text: text for entries and text widgets (although in GTK 1.2 sometimes fg gets used, this is more or less a bug and fixed in GTK 2.0).
+    base: background when using text, colored white in the default theme.
+    fg: foreground for drawing GtkLabel
+    bg: the usual background color, gray by default */ 
+
+/* The states are:
+    normal: normal state.
+    active: pressed-in or activated; e.g. buttons while the mouse button is held down.
+    prelight: color when the mouse is over an activatable widget.
+    insensitive: color when the widget is disabled (gtk_widget_set_sensitive() disables a widget).
+    selected: color when something is selected, e.g. when selecting some text to cut/copy. */ 
+
+/* https://en.wikibooks.org/wiki/GTK%2B_By_Example%2FTheming */

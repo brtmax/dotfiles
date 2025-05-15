@@ -61,3 +61,5 @@ meson
 aichat
 ninja
 docker
+brightnessctl
+noto-fonts-emoji
