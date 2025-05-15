@@ -119,3 +119,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f "/home/max/.ghcup/env" ] && . "/home/max/.ghcup/env" # ghcup-env
+
+export GTK_THEME=Slot-Dark-GTK

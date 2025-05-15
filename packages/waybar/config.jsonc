@@ -12,7 +12,6 @@
         "battery",
     ],
     "modules-right": [
-        "custom/keyboard-layout",
         "custom/weather",
         "temperature",
         "cpu",
@@ -20,8 +19,6 @@
         "backlight",
         "pulseaudio",
         "network",
-        "idle_inhibitor",
-        "bluetooth",
         "custom/power"
     ],
 
@@ -43,7 +40,7 @@
         "format": "{}°",
         "tooltip": true,
         "interval": 3600,
-        "exec": "~/.local/bin/wttrbar --date-format '%A' --lang de --location Bologna",
+        "exec": "~/.local/bin/wttrbar --date-format '%A' --lang de --location Berlin",
         "return-type": "json"
     },
 

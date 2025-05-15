@@ -234,3 +234,6 @@ output * scale 1
 
 # Font
 font pango:SpaceMono Nerd Font 10
+
+exec_always --no-startup-id GTK_THEME=Slot-Dark-GTK ghostty
+
