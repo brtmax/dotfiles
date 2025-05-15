@@ -41,14 +41,15 @@ output * bg /home/max/Downloads/wallpaper.jpeg fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f'
+
+# Handle laptop lid
+bindswitch lid:on exec swaylock -f && swaymsg "output * dpms off"
+bindswitch lid:off swaymsg "output * dpms on"
 
 ### Input configuration
 #
@@ -229,11 +230,13 @@ bar swaybar_command waybar
 
 include /etc/sway/config.d/*
 
+# Terminal configuration
+exec_always --no-startup-id GTK_THEME=Slot-Dark-GTK ghostty
+exec_always --no-startup-id export GTK_THEME=Slot-Dark-GTK
+
 # Scaling
 output * scale 1
 
 # Font
-font pango:SpaceMono Nerd Font 10
-
-exec_always --no-startup-id GTK_THEME=Slot-Dark-GTK ghostty
+font pango:SpaceMono Nerd Font 12
 

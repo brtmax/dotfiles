@@ -5,7 +5,7 @@ window-theme = ghostty
 confirm-close-surface = false
 shell-integration-features = no-title
 
-theme = GruvboxDarkHard
+theme = ef-owl
 shell-integration-features = no-cursor,sudo,no-title
 window-colorspace = "display-p3"
 background = 1C2021
