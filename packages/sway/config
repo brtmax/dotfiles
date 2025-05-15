@@ -228,3 +228,9 @@ bindsym Ctrl+Shift+s exec ~/dotfiles/scripts/screenshot_clipboard.sh
 bar swaybar_command waybar
 
 include /etc/sway/config.d/*
+
+# Scaling
+output * scale 1
+
+# Font
+font pango:SpaceMono Nerd Font 10
