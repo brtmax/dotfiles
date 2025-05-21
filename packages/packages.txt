@@ -64,3 +64,4 @@ docker
 brightnessctl
 noto-fonts-emoji
 zoxide
+iwgtk
