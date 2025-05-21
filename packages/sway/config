@@ -29,7 +29,7 @@ default_border pixel x|none
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/max/Downloads/wallpaper.jpeg fill
+# output * bg /home/max/Downloads/wallpaper.jpeg fill
 #
 # Example configuration:
 #
@@ -236,3 +236,4 @@ output * scale 1
 # Font
 font pango:SpaceMono Nerd Font 12
 
+exec_always /home/max/dotfiles/packages/sway/scripts/dynamic_wallpapers.sh
