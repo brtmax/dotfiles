@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+skip_global_compinit=1
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -69,12 +71,23 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
-  git z
 )
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
+# Lazy load syntax highlighting
+() {
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd _lazy_load_syntax_highlighting
+}
+
+_lazy_load_syntax_highlighting() {
+  if [[ -z "$_syntax_highlighting_loaded" ]]; then
+    source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &>/dev/null
+    _syntax_highlighting_loaded=1
+  fi
+}
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -114,14 +127,44 @@ alias vim=nvim
 alias add='/home/max/scripts/save_install.sh'
 alias b='yazi'
 alias note='vim ~/engineering-daybook/refile.org'
-autoload -U compinit
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -i
+fi
 compinit
 alias cb='snap run clipboard'
 alias pdf="pandoc"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Lazy load NVM
+lazy_load_nvm() {
+  unset -f node npm nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
 
+node() { lazy_load_nvm; node "$@"; }
+npm() { lazy_load_nvm; npm "$@"; }
+nvm() { lazy_load_nvm; nvm "$@"; }
 [ -f "/home/max/.ghcup/env" ] && . "/home/max/.ghcup/env" # ghcup-env
 eval "$(zoxide init zsh)"
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+zstyle ':completion:*' use-ip true
+zstyle ':completion:*' use-perl true
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
+# Optimize history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
+
+skip_global_compinit=1
+zprof
