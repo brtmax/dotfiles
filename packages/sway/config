@@ -41,15 +41,15 @@ output * bg /home/max/Downloads/wallpaper.jpeg fill
 #
 # Example configuration:
 #
-exec swayidle -w \
-    timeout 300 'swaylock -f' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f'
+#exec swayidle -w \
+#    timeout 300 'swaylock -f' \
+#    timeout 600 'swaymsg "output * dpms off"' \
+#    resume 'swaymsg "output * dpms on"' \
+#    before-sleep 'swaylock -f'
 
 # Handle laptop lid
-bindswitch lid:on exec swaylock -f && swaymsg "output * dpms off"
-bindswitch lid:off swaymsg "output * dpms on"
+#bindswitch lid:on exec swaylock -f && swaymsg "output * dpms off"
+#bindswitch lid:off swaymsg "output * dpms on"
 
 ### Input configuration
 #
@@ -229,10 +229,6 @@ bindsym Ctrl+Shift+s exec ~/dotfiles/scripts/screenshot_clipboard.sh
 bar swaybar_command waybar
 
 include /etc/sway/config.d/*
-
-# Terminal configuration
-exec_always --no-startup-id GTK_THEME=Slot-Dark-GTK ghostty
-exec_always --no-startup-id export GTK_THEME=Slot-Dark-GTK
 
 # Scaling
 output * scale 1

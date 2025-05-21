@@ -63,3 +63,4 @@ ninja
 docker
 brightnessctl
 noto-fonts-emoji
+zoxide
