@@ -1,4 +1,3 @@
-zmodload zsh/zprof
 skip_global_compinit=1
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -167,4 +166,3 @@ setopt HIST_VERIFY
 setopt SHARE_HISTORY
 
 skip_global_compinit=1
-zprof

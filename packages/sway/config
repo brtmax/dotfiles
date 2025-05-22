@@ -1,4 +1,9 @@
 # Default config for sway
+
+workspace 1 name "ter"
+workspace 2 name "com"
+workspace 3 name "web"
+workspace 4 name "ask"
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
@@ -7,7 +12,8 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-
+gaps inner 3
+gaps outer 20
 set $mod Mod4
 # Home row direction keys, like vim
 set $left h
@@ -70,7 +76,7 @@ default_border pixel x|none
 # Basics:
 #
     # Lock screen
-    #bindsym $mod+Shift+l exec swaylock -e -f
+    # bindsym $mod+Shift+l exec swaylock -e -
 	
     # Start a terminal
     bindsym $mod+Return exec $term 
@@ -237,3 +243,12 @@ output * scale 1
 font pango:SpaceMono Nerd Font 12
 
 exec_always /home/max/dotfiles/packages/sway/scripts/dynamic_wallpapers.sh
+
+# Enable shadows
+shadows enable
+shadow_blur_radius 10
+shadow_color #00000040
+shadow_offset 0 0
+
+# Enable corner radius
+corner_radius 6

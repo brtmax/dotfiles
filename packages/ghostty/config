@@ -1,12 +1,13 @@
+title = "Ghostty"
+
 window-padding-x = 2
 font-size = 10
 mouse-hide-while-typing = true
 window-theme = ghostty
 confirm-close-surface = false
-shell-integration-features = no-title
 
 theme = ef-owl
-shell-integration-features = no-cursor,sudo,no-title
+shell-integration-features = no-cursor,sudo
 window-colorspace = "display-p3"
 background = 1C2021
 adjust-cell-height = 35%
@@ -27,5 +28,13 @@ keybind = alt+shift+l=resize_split:right,10
 
 keybind = alt+shift+w=close_surface
 
-background-opacity = 0.95
+
+background-opacity = 0.75
 background-blur = 20
+unfocused-split-opacity=0.6
+
+clipboard-read = allow
+clipboard-write = allow
+
+shell-integration-features = true
+cursor-style-blink = true

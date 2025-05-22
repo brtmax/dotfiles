@@ -1,0 +1,104 @@
+{
+  "include": [
+    "~/.config/waybar/configs/custom_modules/launcher",
+    "~/.config/waybar/configs/custom_modules/modules",
+    "~/.config/waybar/configs/custom_modules/privacy_container",
+    "~/.config/waybar/configs/custom_modules/system_container",
+    "~/.config/waybar/configs/custom_modules/app_title"
+  ],
+  "layer": "top",
+  "height": 20,
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-bottom": 0,
+  "margin-right": 0,
+  "spacing": 0,
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/arrow-dec",
+    "group/app-title-container"
+  ],
+  "modules-center": [
+    
+  ],
+  "modules-right": [
+    "cpu",
+    "custom/dot",
+    "memory",
+    "custom/dot",
+    "network",
+    "custom/left-arrw",
+    "group/system-container",
+    "custom/dot-alt",
+    "group/privacy-container"
+  ],
+  "hyprland/workspaces": {
+    "all-outputs": false,
+    "active-only": "false",
+    "on-click": "activate",
+    "format": "<big>{icon}</big><span color = '#98ff98'> 󪤖 </span>{windows}",
+  "format-window-separator": " ",
+  "window-rewrite-default": "",
+  "window-rewrite": {
+    "title<.*youtube.*>": "",
+    "class<firefox>": "",
+    "class<firefox> title<.*github.*>": "",
+    "foot": "",
+    "code": "󪤋",
+    "android": "󪥰",
+    "alacritty": "󪤍",
+    "chrome": "󪤕",
+    "thorium": "󪤕",
+    "firefox": "󪥲",
+    "spotify": "󪤏",
+    "gitkraken": "󪥩"
+	},
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+      "urgent": "急",
+      "default": "常"
+    }
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "icon": true,
+    "separate-outputs": true,
+    "max-length": 70
+  },
+  "tray": {
+    "icon-size": 28,
+    "spacing": 8
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "󪥋 <b>{usage}%</b>",
+    "max-length": 10,
+    "on-click": "",
+    "tooltip": false
+  },
+  "memory": {
+    "interval": 60,
+    "format": "󪤲 <b>{used}G</b>",
+    "max-length": 10,
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": "󪤀 <b>{essid}</b>",
+    "format-ethernet": "󪥈 <b>Ethernet</b>",
+    "tooltip": true,
+    "format-disconnected": "󪤓"
+  }
+  
+}

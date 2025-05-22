@@ -1,23 +1,29 @@
 #!/bin/bash
 
-# Directory containing the wallpapers
 WALLPAPER_DIR="$HOME/Documents/mojave_dynamic"
 
-# Calculate which wallpaper to show (1-16)
-# Each wallpaper is shown for 90 minutes (1.5 hours)
-# Total cycle is 24 hours
-current_hour=$(date +%H)
-current_minute=$(date +%M)
-total_minutes=$((current_hour * 60 + current_minute))
-wallpaper_number=$(( (total_minutes / 90) % 16 + 1 ))
+set_wallpaper() {
+    local wallpaper_number=$1
+    if [ -f /tmp/swaybg.pid ]; then
+        kill $(cat /tmp/swaybg.pid) 2>/dev/null
+        rm /tmp/swaybg.pid
+    fi
+    swaybg -i "$WALLPAPER_DIR/mojave_dynamic_$wallpaper_number.jpeg" -m fill &
+    echo $! > /tmp/swaybg.pid
+}
 
-# Set the wallpaper using swaybg
-swaybg -i "$WALLPAPER_DIR/mojave_dynamic_$wallpaper_number.jpeg" -m fill &
+get_wallpaper_number() {
+    local current_hour=$(date +%H | sed 's/^0*//')
+    local current_minute=$(date +%M | sed 's/^0*//')
+    local total_minutes=$((current_hour * 60 + current_minute))
+    local segment=$((total_minutes / 90))
+    local wallpaper_number=$((segment + 1))
+    if [ $wallpaper_number -gt 16 ]; then
+        wallpaper_number=1
+    fi
+    echo $wallpaper_number
+}
 
-# Store the PID of swaybg
-echo $! > /tmp/swaybg.pid
-
-# Function to cleanup on exit
 cleanup() {
     if [ -f /tmp/swaybg.pid ]; then
         kill $(cat /tmp/swaybg.pid) 2>/dev/null
@@ -26,28 +32,15 @@ cleanup() {
     exit 0
 }
 
-# Set up trap for cleanup
 trap cleanup EXIT
 
-# Main loop to update wallpaper every 90 minutes
+set_wallpaper $(get_wallpaper_number)
+
 while true; do
-    # Sleep until the next 90-minute mark
-    current_minutes=$(( $(date +%H) * 60 + $(date +%M) ))
-    minutes_to_sleep=$(( 90 - (current_minutes % 90) ))
-    sleep $((minutes_to_sleep * 60))
-    
-    # Update wallpaper
-    current_hour=$(date +%H)
-    current_minute=$(date +%M)
+    current_hour=$(date +%H | sed 's/^0*//')
+    current_minute=$(date +%M | sed 's/^0*//')
     total_minutes=$((current_hour * 60 + current_minute))
-    wallpaper_number=$(( (total_minutes / 90) % 16 + 1 ))
-    
-    # Kill existing swaybg
-    if [ -f /tmp/swaybg.pid ]; then
-        kill $(cat /tmp/swaybg.pid) 2>/dev/null
-    fi
-    
-    # Start new swaybg
-    swaybg -i "$WALLPAPER_DIR/mojave_dynamic_$wallpaper_number.jpeg" -m fill &
-    echo $! > /tmp/swaybg.pid
+    minutes_until_next_segment=$((90 - (total_minutes % 90)))
+    sleep $((minutes_until_next_segment * 60))
+    set_wallpaper $(get_wallpaper_number)
 done
