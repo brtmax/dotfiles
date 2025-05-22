@@ -4,7 +4,8 @@
     "margin-right": 10,
     "height" : 30,
     "modules-left": [
-      "sway/workspaces"
+    "custom/tux",
+      "sway/workspaces",
     ],
     "modules-center": [
       "sway/window",
@@ -72,6 +73,14 @@
       "format-disconnected": " ⚠ ",
       "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
+        "custom/tux": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "btw",
+	"class": "custom-tux"
+    },
+
+
     "pulseaudio": {
       "format": "{icon}  {volume}%",
       "format-bluetooth": "{volume}% {icon} {format_source}",

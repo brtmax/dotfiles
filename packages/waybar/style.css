@@ -2,7 +2,7 @@
 
 * {
   font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 window#waybar {
@@ -66,27 +66,27 @@ button:hover {
 }
 
 #pulseaudio {
-  color: @lavender;
+  color: #FFFFFF;
 }
 
 #network {
-  color: @lavender;
+  color: #FFFFFF;
 }
 
 #temperature {
-  color: @lavender;
+  color: #FFFFFF;
 }
 
 #battery {
-  color: @lavender;
+  color: #FFFFFF;
 }
 
 #clock {
-  color: @lavender;
+  color: #FFFFFF;
 }
 
 #window {
-  color: @lavender;
+  color: #FFFFFF;
 }
 
 .modules-right,
@@ -136,4 +136,10 @@ label:focus {
 
 #pulseaudio.muted {
   color: @text;
+}
+
+#custom-tux {
+    padding-left: 5px;
+    padding-right: 10px;
+    margin-right: 5px;
 }
