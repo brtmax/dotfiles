@@ -1,7 +1,7 @@
 title = "Ghostty"
 
 window-padding-x = 2
-font-size = 10
+font-size = 13
 mouse-hide-while-typing = true
 window-theme = ghostty
 confirm-close-surface = false

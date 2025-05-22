@@ -104,6 +104,7 @@ vim.opt.relativenumber = true
 --  Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
 
+-- You can als
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
@@ -910,7 +911,7 @@ require("lazy").setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     "folke/tokyonight.nvim",
-    priority = 1000, -- Make sure to load this before all the other start plugins.
+    priority = 999, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
@@ -921,6 +922,15 @@ require("lazy").setup({
       vim.cmd.hi "Comment gui=none"
     end,
   },
+
+  {
+  'rose-pine/neovim',
+  name = 'rose-pine-dawn',
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme 'rose-pine-dawn'
+  end,
+},
 
   -- Highlight todo, notes, etc in comments
   {
@@ -935,6 +945,16 @@ require("lazy").setup({
     lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
     version = "*", -- Pin Neorg to the latest stable release
     config = true,
+  },
+  {
+    "toppair/peek.nvim",
+    event = { "VeryLazy" },
+    build = "deno task --quiet build:fast",
+    config = function()
+        require("peek").setup()
+        vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+        vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    end,
   },
 
   { -- Collection of various small independent plugins/modules

@@ -13,7 +13,7 @@ workspace 4 name "ask"
 #
 # Logo key. Use Mod1 for Alt.
 gaps inner 3
-gaps outer 20
+gaps outer 4
 set $mod Mod4
 # Home row direction keys, like vim
 set $left h
