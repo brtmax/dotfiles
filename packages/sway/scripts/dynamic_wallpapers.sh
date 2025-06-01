@@ -8,7 +8,7 @@ set_wallpaper() {
         kill $(cat /tmp/swaybg.pid) 2>/dev/null
         rm /tmp/swaybg.pid
     fi
-    swaybg -i "$WALLPAPER_DIR/mojave_dynamic_$wallpaper_number.jpeg" -m fill &
+    swaybg -i "$WALLPAPER_DIR/$wallpaper_number.jpeg" -m fill &
     echo $! > /tmp/swaybg.pid
 }
 
@@ -16,9 +16,9 @@ get_wallpaper_number() {
     local current_hour=$(date +%H | sed 's/^0*//')
     local current_minute=$(date +%M | sed 's/^0*//')
     local total_minutes=$((current_hour * 60 + current_minute))
-    local segment=$((total_minutes / 90))
-    local wallpaper_number=$((segment + 1))
-    if [ $wallpaper_number -gt 16 ]; then
+    local segment=$((total_minutes / 60))
+    local wallpaper_number=$((segment))
+    if [ $wallpaper_number -gt 24 ]; then
         wallpaper_number=1
     fi
     echo $wallpaper_number

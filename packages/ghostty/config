@@ -1,6 +1,6 @@
 title = "Ghostty"
 
-font-size = 13
+font-size = 14
 mouse-hide-while-typing = true
 window-theme = ghostty
 confirm-close-surface = false
@@ -26,7 +26,6 @@ keybind = alt+shift+h=resize_split:left,10
 keybind = alt+shift+l=resize_split:right,10
 
 keybind = alt+shift+w=close_surface
-
 
 background-opacity = 0.75
 background-blur = 20

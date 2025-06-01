@@ -65,3 +65,6 @@ brightnessctl
 noto-fonts-emoji
 zoxide
 iwgtk
+zathura
+zathura-mupdf
+tumbler
