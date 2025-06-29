@@ -90,6 +90,9 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.tabstop = 4
+vim.opt.smartindent = true
+
 vim.opt.termguicolors = true
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -255,6 +258,22 @@ require("lazy").setup({
         changedelete = { text = "~" },
       },
     },
+  },
+
+  {
+    "neoclide/coc.nvim",
+    branch = "release",
+    build = function()
+      vim.cmd [[yarn install --frozen-lockfile]]
+    end,
+    -- If you want to build from source (alternative to 'release' branch)
+    -- branch = 'master',
+    -- build = 'npm ci',
+    -- You can add more configuration here, e.g., 'event' to load it later
+    -- event = 'VimEnter',
+    config = function()
+      require "coc"
+    end,
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -606,10 +625,10 @@ require("lazy").setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
         -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
+        pyright = {},
+        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -869,20 +888,62 @@ require("lazy").setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
-
-{
-    "catppuccin/nvim",
-    name = "catppuccin",
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    -- The 'opts' table directly corresponds to the setup() table you provided
+    opts = {
+      enable = true,
+      multiwindow = false,
+      max_lines = 0,
+      min_window_height = 0,
+      line_numbers = true,
+      multiline_threshold = 20,
+      trim_scope = "outer",
+      mode = "cursor",
+      separator = nil,
+      zindex = 20,
+      on_attach = nil,
+      -- You can also define patterns here if you need more fine-grained control
+      -- patterns = {
+      --   cpp = { "class", "function", "struct", "for", "while", "if" },
+      --   -- etc.
+      -- }
+    },
+    -- Optional: If you want to load it only when nvim-treesitter is loaded:
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
-        require("catppuccin").setup({
-            flavour = "macchiato",
-            -- rest of your config...
-        })
-        vim.cmd.colorscheme "catppuccin"
-    end
-}
-  ,
+      require("kanagawa").setup {
+        compile = false,
+        undercurl = true,
+        commentStyle = { italic = false }, -- remove italic if you want
+        functionStyle = {},
+        keywordStyle = { italic = false },
+        statementStyle = { bold = false },
+        typeStyle = {},
+        transparent = false,
+        dimInactive = false,
+        terminalColors = true,
+        theme = "wave", -- try "dragon" for more vibrant colors
+        background = {
+          dark = "wave",
+          light = "lotus",
+        },
+        colors = {
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+        },
+        overrides = function(colors)
+          return {}
+        end,
+      }
+      vim.cmd "colorscheme kanagawa"
+    end,
+  },
   { -- Highlight, edit, and navigate code
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
