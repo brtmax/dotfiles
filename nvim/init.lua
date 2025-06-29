@@ -275,6 +275,7 @@ require("lazy").setup({
       require "coc"
     end,
   },
+  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
@@ -343,6 +344,16 @@ require("lazy").setup({
         { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
       },
     },
+  },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
 
   -- NOTE: Plugins can specify dependencies.
