@@ -34,5 +34,5 @@ unfocused-split-opacity=0.6
 clipboard-read = allow
 clipboard-write = allow
 
-shell-integration-features = true
-cursor-style-blink = true
+shell-integration-features = false
+cursor-style-blink = false

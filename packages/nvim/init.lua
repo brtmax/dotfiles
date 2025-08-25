@@ -91,7 +91,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -925,10 +925,11 @@ require("lazy").setup({
 
   {
   'rose-pine/neovim',
-  name = 'rose-pine-dawn',
+  -- name = 'rose-pine-dawn',
+  name = 'rose-pine',
   priority = 1000,
   config = function()
-    vim.cmd.colorscheme 'rose-pine-dawn'
+    vim.cmd.colorscheme 'rose-pine'
   end,
 },
 
@@ -1002,6 +1003,9 @@ require("lazy").setup({
     opts = {
       ensure_installed = {
         "bash",
+        "cpp",
+        "python",
+        "zig",
         "c",
         "diff",
         "html",
