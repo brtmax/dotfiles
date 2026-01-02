@@ -26,7 +26,7 @@ input "type:keyboard" {
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border none
 #set $menu exec $term --class=launcher -e /usr/bin/sway-launcher-desktop
 
-default_border pixel x|none 
+default_border none 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -74,7 +74,7 @@ default_border pixel x|none
     # bindsym $mod+Shift+l exec swaylock -e -
     bindsym $mod+Ctrl+l exec swaylock --effect-blur 7x5 --screenshots	
     # Start a terminal
-    bindsym $mod+Return exec $term 
+    bindsym $mod+Return splith; exec $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill

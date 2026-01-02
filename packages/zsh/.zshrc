@@ -3,12 +3,13 @@ skip_global_compinit=1
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+export ZSH=~"/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="fishbone++"
+# ZSH_THEME="robbyrussell"
 
 if [ "$TMUX" = "" ]; then tmux; fi
 
@@ -147,7 +148,6 @@ lazy_load_nvm() {
 node() { lazy_load_nvm; node "$@"; }
 npm() { lazy_load_nvm; npm "$@"; }
 nvm() { lazy_load_nvm; nvm "$@"; }
-[ -f "/home/max/.ghcup/env" ] && . "/home/max/.ghcup/env" # ghcup-env
 eval "$(zoxide init zsh)"
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
@@ -166,3 +166,6 @@ setopt HIST_VERIFY
 setopt SHARE_HISTORY
 
 skip_global_compinit=1
+export PATH=$HOME/.local/bin:$PATH
+
+[ -f "/home/max/.ghcup/env" ] && . "/home/max/.ghcup/env" # ghcup-env
