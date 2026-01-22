@@ -38,4 +38,25 @@ ls.add_snippets("cpp", {
     i(2),
     t { "", "};" },
   }),
+  -- Template function specialization
+  s("template_func", {
+    t "template<>",
+    t { "", "void " },
+    i(1, "functionName"),
+    t "(",
+    i(2, "args"),
+    t { ") {", "\t" },
+    i(0, "// implementation"),
+    t { "", "}" },
+  }),
+
+  -- Template class specialization
+  s("template_class", {
+    t "template<>",
+    t { "", "class " },
+    i(1, "ClassName"),
+    t { " {", "public:", "\t" },
+    i(0, "// members"),
+    t { "", "};" },
+  }),
 })
