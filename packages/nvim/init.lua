@@ -507,7 +507,7 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
+      { "williamboman/mason.nvim", config = true, lazy = false },
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
 
@@ -532,7 +532,6 @@ require("lazy").setup({
         -- OPTIONAL:
         --   `nvim-notify` is only needed, if you want to use the notification view.
         --   If not available, we use `mini` as the fallback
-        "rcarriga/nvim-notify",
       },
     },
     config = function()
@@ -673,7 +672,12 @@ require("lazy").setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
+        clangd = {
+          on_attach = on_attach,
+          cmd = { "clangd" },
+          filetypes = { "c", "cpp", "objc", "objcpp" },
+          root_dir = vim.loop.cwd,
+        },
         -- gopls = {},
         pyright = {},
         -- rust_analyzer = {},
@@ -709,7 +713,9 @@ require("lazy").setup({
       --
       --  You can press `g?` for help in this menu.
       require("mason").setup()
-
+      require("mason-lspconfig").setup {
+        ensure_installed = { "clangd" },
+      }
       require("noice").setup {
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -842,6 +848,10 @@ require("lazy").setup({
           end,
         },
         completion = { completeopt = "menu,menuone,noinsert" },
+
+        experimental = {
+          ghost_text = true, -- enables inline autosuggestions
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -1138,3 +1148,20 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 require("luasnip.loaders.from_lua").lazy_load {
   paths = "~/.config/nvim/snippets",
 }
+
+-- init.lua
+local lspconfig = require "lspconfig"
+
+-- Setup clangd
+vim.lsp.config.clangd = {
+  cmd = {
+    "clangd",
+    "--clang-tidy",
+    "--background-index",
+    "--offset-encoding=utf-8",
+  },
+  root_markers = { ".clangd", "compile_commands.json" },
+  filetypes = { "c", "cpp" },
+}
+
+vim.lsp.enable "clangd"
