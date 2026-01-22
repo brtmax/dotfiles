@@ -98,6 +98,8 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+vim.opt.cinoptions = vim.opt.cinoptions + "L0"
+
 -- Make line numbers default
 vim.opt.relativenumber = true
 -- You can also add relative line numbers, to help with jumping.
@@ -121,6 +123,9 @@ end)
 
 -- Enable break indent
 vim.opt.breakindent = true
+
+vim.opt.smartindent = true
+vim.opt.cindent = true
 
 -- Save undo history
 vim.opt.undofile = true
@@ -328,7 +333,7 @@ require("lazy").setup({
     },
   },
 
- {
+  {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
@@ -340,9 +345,9 @@ require("lazy").setup({
       -- configurations go here
     },
     config = function()
-      require("barbecue").setup({
+      require("barbecue").setup {
         create_autocmd = false, -- prevent barbecue from updating itself automatically
-      })
+      }
 
       vim.api.nvim_create_autocmd({
         "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
@@ -668,9 +673,9 @@ require("lazy").setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -678,7 +683,7 @@ require("lazy").setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
+        tsserver = {},
         --
 
         lua_ls = {
@@ -705,7 +710,7 @@ require("lazy").setup({
       --  You can press `g?` for help in this menu.
       require("mason").setup()
 
-            require("noice").setup {
+      require("noice").setup {
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
           override = {
@@ -781,6 +786,8 @@ require("lazy").setup({
       end,
       formatters_by_ft = {
         lua = { "stylua" },
+        cpp = { "clang-format" },
+        c = { "clang-format" },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -806,15 +813,12 @@ require("lazy").setup({
           return "make install_jsregexp"
         end)(),
         dependencies = {
-          -- `friendly-snippets` contains a variety of premade snippets.
-          --    See the README about individual language/framework/plugin snippets:
-          --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            "rafamadriz/friendly-snippets",
+            config = function()
+              require("luasnip.loaders.from_vscode").lazy_load()
+            end,
+          },
         },
       },
       "saadparwaiz1/cmp_luasnip",
@@ -924,14 +928,14 @@ require("lazy").setup({
   },
 
   {
-  'rose-pine/neovim',
-  -- name = 'rose-pine-dawn',
-  name = 'rose-pine',
-  priority = 1000,
-  config = function()
-    vim.cmd.colorscheme 'rose-pine'
-  end,
-},
+    "rose-pine/neovim",
+    -- name = 'rose-pine-dawn',
+    name = "rose-pine",
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme "rose-pine"
+    end,
+  },
 
   -- Highlight todo, notes, etc in comments
   {
@@ -952,9 +956,9 @@ require("lazy").setup({
     event = { "VeryLazy" },
     build = "deno task --quiet build:fast",
     config = function()
-        require("peek").setup()
-        vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-        vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+      require("peek").setup()
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
   },
 
@@ -967,7 +971,6 @@ require("lazy").setup({
       --  - va)  - [V]isually select [A]round [)]paren
       --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
       --  - ci'  - [C]hange [I]nside [']quote
-      require("mini.ai").setup { n_lines = 500 }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
@@ -993,6 +996,25 @@ require("lazy").setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
+    end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup {
+        check_ts = true, -- use Treesitter to avoid dumb pairs
+      }
+    end,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
     end,
   },
   { -- Highlight, edit, and navigate code
@@ -1026,7 +1048,7 @@ require("lazy").setup({
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { "ruby" },
       },
-      indent = { enable = true, disable = { "ruby" } },
+      indent = { enable = true, disable = { "c", "cpp" } },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -1052,8 +1074,7 @@ require("lazy").setup({
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   --
- require("kickstart.plugins.obsidian")
-
+  require "kickstart.plugins.obsidian",
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -1088,21 +1109,32 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   callback = function()
     local template_path = "~/.config/nvim/templates/markdown_template.md"
     local template = io.open(vim.fn.expand(template_path), "r")
-    local content = template:read("*a")
+    local content = template:read "*a"
     template:close()
 
     -- Replace {{date}} with the current date
-    local current_date = os.date("%Y-%m-%d")
+    local current_date = os.date "%Y-%m-%d"
     content = content:gsub("{{date}}", current_date)
 
     vim.api.nvim_buf_set_lines(0, 0, 0, false, vim.split(content, "\n"))
-  end
+  end,
 })
 
 vim.opt.conceallevel = 1
-vim.opt.tabstop = 4      -- Number of visual spaces per TAB
-vim.opt.shiftwidth = 4   -- Number of spaces per indentation level
+vim.opt.tabstop = 4 -- Number of visual spaces per TAB
+vim.opt.shiftwidth = 4 -- Number of spaces per indentation level
 vim.opt.expandtab = true -- Convert tabs to spaces
 vim.opt.scrolloff = 20 -- all the time you have to leave the space!
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- C++ 26
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.ixx", "*.cppm" },
+  command = "set filetype=cpp",
+})
+
+-- Snippets
+require("luasnip.loaders.from_lua").lazy_load {
+  paths = "~/.config/nvim/snippets",
+}
