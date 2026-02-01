@@ -1,6 +1,6 @@
 title = "Ghostty"
 
-font-size = 14
+font-size = 12
 mouse-hide-while-typing = true
 window-theme = ghostty
 confirm-close-surface = false
@@ -36,3 +36,6 @@ clipboard-write = allow
 
 shell-integration-features = false
 cursor-style-blink = false
+
+window-padding-balance = false
+window-padding-color = background

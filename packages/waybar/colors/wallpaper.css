@@ -1,0 +1,9 @@
+/* WaybarConf Style Variables */
+
+@define-color bar_bg #1e1e2e;
+@define-color bar_fg #cdd6f4;
+@define-color module_bg #313244;
+@define-color module_fg #cdd6f4;
+@define-color hover_bg #45475a;
+@define-color hover_fg #f5e0dc;
+@define-color border_color #585b70;

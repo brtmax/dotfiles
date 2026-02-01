@@ -8,10 +8,12 @@ export ZSH=~"/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="fishbone++"
+# ZSH_THEME="fishbone++"
 # ZSH_THEME="robbyrussell"
 
-if [ "$TMUX" = "" ]; then tmux; fi
+if [[ -z "$TMUX" && -n "$PS1" ]]; then
+  exec tmux
+fi
 
 # Theme configuration
 export GTK_THEME=Slot-Dark-GTK
@@ -169,3 +171,7 @@ skip_global_compinit=1
 export PATH=$HOME/.local/bin:$PATH
 
 [ -f "/home/max/.ghcup/env" ] && . "/home/max/.ghcup/env" # ghcup-env
+
+fpath+=($HOME/.zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure

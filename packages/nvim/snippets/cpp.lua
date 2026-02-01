@@ -49,7 +49,22 @@ ls.add_snippets("cpp", {
     i(0, "// implementation"),
     t { "", "}" },
   }),
-
+  -- Pattern matching
+  s("match", {
+    t "auto ",
+    i(1, "result"),
+    t " = inspect (",
+    i(2, "value"),
+    t { ") {", "" },
+    t "    [",
+    i(3, "pattern"),
+    t "] => ",
+    i(4, "expr"),
+    t { ",", "" },
+    t "    [_] => ",
+    i(5, "default"),
+    t { "", "};" },
+  }),
   -- Template class specialization
   s("template_class", {
     t "template<>",

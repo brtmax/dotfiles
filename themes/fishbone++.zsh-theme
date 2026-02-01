@@ -5,8 +5,8 @@ local path_string="%{$fg[blue]%}%~"
 local path_postfix="%{$fg[yellow]%}]"
 local prompt_string="❯❯ "
 local local_time="%T"
-local newline=$'\n'
-local line_mode=$'\n'
+local newline=$''
+local line_mode=$''
 
 # customize user settings
 # prompt symbol
@@ -46,11 +46,9 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%{$fg[blue])%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="⚡"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-PROMPT='${newline}\
-${host_name}${hosr}%{$reset_color%}@${time_string} ${line_mode}\
+PROMPT='${host_name}${hosr}%{$reset_color%}@${time_string} \
 ${path_prefix}${path_string}${path_postfix}$(git_prompt_info)$(git_prompt_status) \
 ${return_status} %{$reset_color%}'
-
 
 ZSH_THEME_GIT_PROMPT_ADDED=""
 ZSH_THEME_GIT_PROMPT_MODIFIED=""

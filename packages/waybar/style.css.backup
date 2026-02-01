@@ -1,0 +1,191 @@
+/* =========================
+   GLOBAL
+   ========================= */
+
+* {
+  font-size: 15px;
+  min-height: 0;
+  padding: 0.0rem;
+}
+
+/* =========================
+   WAYBAR WINDOW
+   ========================= */
+
+window#waybar {
+  background: rgba(0, 0, 0, 0.55); 
+  border-radius: 0.5rem;            
+  margin: 8px;
+  padding: 4px 8px;                     
+  margin: 10px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   ISLAND CONTAINERS
+   ========================= */
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 0.7rem;
+  padding: 1px 6px 1px 6px; /* top, right, bottom, left */
+  margin: 3px 3px 3px 3px;    /* top=3px, right=3px, bottom=0px, left=3px */
+}
+
+
+/* =========================
+   TOOLTIP
+   ========================= */
+
+tooltip {
+  background: #000000;
+}
+tooltip label {
+  color: white;
+}
+
+/* =========================
+   WORKSPACES
+   ========================= */
+
+#workspaces button {
+  padding: 0 6px;
+  background: transparent;
+  color: black;
+  border-bottom: 3px solid transparent;
+}
+
+/* =========================
+   MODULE COMMON STYLING
+   ========================= */
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+  margin: 2px 4px;
+  padding: 2px 6px;
+  color: #000000;
+  border-radius: 0.75rem;
+}
+
+/* =========================
+   MODE
+   ========================= */
+
+#mode {
+  background: #64727d;
+  border-bottom: 3px solid white;
+}
+
+/* =========================
+   CLOCK
+   ========================= */
+
+#clock {
+  font-size: 14px;
+}
+
+/* =========================
+   BATTERY
+   ========================= */
+
+#battery icon {
+  color: red;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #ffffff;
+  background-color: #26a65b;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.warning:not(.charging),
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+/* =========================
+   NETWORK / TEMPERATURE
+   ========================= */
+
+#network.disconnected {
+  background-color: #f53c3c;
+}
+
+#temperature.critical {
+  background-color: #eb4d4b;
+}
+
+/* =========================
+   IDLE INHIBITOR
+   ========================= */
+
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #2d3436;
+}
+
+/* =========================
+   TRAY
+   ========================= */
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+/* =========================
+   CUSTOM OS BUTTON
+   ========================= */
+
+#custom-os_button {
+  font-size: 32px;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#custom-os_button:hover {
+  background: white;
+  color: black;
+}
+
+#custom-airpods.connected {
+    color: #55aa55; /* green */
+}
+
+#custom-airpods.connecting {
+    color: #fabd2f; /* yellow */
+}
+
+#custom-airpods.blocked,
+#custom-airpods.off {
+    color: #928374; /* grey */
+}

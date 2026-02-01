@@ -1,7 +1,0 @@
-@import "../colors-waybar.css";
-
-label#clock {
-  font-size: 13px;
-  padding-right: 5px;
-  padding-left: 5px;
-}
