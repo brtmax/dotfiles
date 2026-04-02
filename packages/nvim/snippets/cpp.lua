@@ -38,7 +38,35 @@ ls.add_snippets("cpp", {
     i(2),
     t { "", "};" },
   }),
-  -- Template function specialization
+  s("cppmain", {
+    t {
+      "#include <cassert>",
+      "#include <iostream>",
+      "#include <vector>",
+      "",
+      "// ---- helpers ----",
+      "",
+      "int ",
+    },
+    i(1, "helper"),
+    t {
+      "(int x) {",
+      "    return x * 2;",
+      "}",
+      "",
+      "// ---- entry point ----",
+      "",
+      "int main() {",
+      "    std::cout << ",
+    },
+    i(2, "helper(21)"),
+    t {
+      " << '\\n';",
+      "    return 0;",
+      "}",
+      "",
+    },
+  }), -- Template function specialization
   s("template_func", {
     t "template<>",
     t { "", "void " },

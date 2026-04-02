@@ -30,7 +30,7 @@ default_border none
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/max/Downloads/wallpaper.jpeg fill
+# output * bg /home/max/Downloads/wallpaper.jpeg fill
 #
 # Example configuration:
 #
@@ -125,15 +125,23 @@ output * bg /home/max/Downloads/wallpaper.jpeg fill
     
     # Workspaces:
     # Define workspace names
-    set $ws1 "t1"
-    set $ws2 "t2"
+    set $ws1 "lib"
+    set $ws2 "term"
     set $ws3 "web"
-    set $ws4 "wiki"
-    set $ws5 "r1"
-    set $ws6 "r2"
-    set $ws7 "anki"
+
+    set $ws4 "scratchpad"
+
     set $ws8 "edb"
-    set $ws9 "misc"
+    set $ws9 "art"
+
+    # Workspace → monitor mapping
+    workspace $ws1 output HDMI-A-1
+    workspace $ws2 output HDMI-A-2
+    workspace $ws4 output HDMI-A-2
+    workspace $ws3 output DP-2
+
+    workspace $ws8 output DP-2
+    workspace $ws9 output DP-2
 
     # Switch to workspace
     bindsym $mod+1 workspace $ws1
@@ -145,6 +153,7 @@ output * bg /home/max/Downloads/wallpaper.jpeg fill
     bindsym $mod+7 workspace $ws7
     bindsym $mod+8 workspace $ws8
     bindsym $mod+9 workspace $ws9 
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace $ws1
     bindsym $mod+Shift+2 move container to workspace $ws2
@@ -216,8 +225,10 @@ mode "resize" {
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
+
 }
 bindsym $mod+r mode "resize"
+
 #
 # Utilities:
 #
@@ -238,6 +249,8 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 
 bindsym --release $mod+Shift+s exec ~/repos/dotfiles/scripts/screenshot_clipboard.sh
+
+bindsym $mod+Shift+i exec /home/max/repos/pix2fen/.venv311/bin/pix2fen-clipboard
 
 bar swaybar_command waybar
 
@@ -271,3 +284,6 @@ output HDMI-A-1 resolution 1920x1080 position 0 0 scale 1
 output HDMI-A-2 resolution 2560x1080 position 1920 0 scale 1
 output DP-2 resolution 1920x1200 position 4480 0 scale 1
 bindsym $mod+Shift+m exec --no-startup-id sway-scratchpad -t -d 13%x80% -a tl -- ghostty -e nvim --clean -u ~/repos/dotfiles/packages/nvim/scratchpad/init.vim ~/engineering-daybook/cheatsheet.md
+
+# exec_always /home/max/repos/dotfiles/scripts/dynamic_wallpapers.sh
+exec_always /home/max/repos/dotfiles/scripts/random_timewall.sh

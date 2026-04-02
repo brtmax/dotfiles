@@ -6,7 +6,7 @@
     "spacing": 5,
     "modules-left": [
       "custom/tux",
-      "custom/launcher",
+      "sway/workspaces",
       "hyprland/window",
       "custom/airpods"
     ],

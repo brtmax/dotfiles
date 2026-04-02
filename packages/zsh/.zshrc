@@ -15,11 +15,6 @@ if [[ -z "$TMUX" && -n "$PS1" ]]; then
   exec tmux
 fi
 
-# Theme configuration
-export GTK_THEME=Slot-Dark-GTK
-export TERM=xterm-256color
-export COLORTERM=truecolor
-
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -175,3 +170,4 @@ export PATH=$HOME/.local/bin:$PATH
 fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
+export PATH="$HOME/.cargo/bin:$PATH"
