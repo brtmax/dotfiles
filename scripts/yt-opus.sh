@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-BASE_DIR="$HOME/Media"
+BASE_DIR="$HOME/Media/Music"
 TARGET=""
 URL=""
 
