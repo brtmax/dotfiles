@@ -165,4 +165,10 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_VERIFY
 setopt SHARE_HISTORY
 
+export FZF_DEFAULT_OPTS='
+  --preview "batcat --color=always {}"
+  --preview-window=right:50%
+  --bind "enter:execute(nvim {})"
+  --bind "j:down,k:up"
+'
 skip_global_compinit=1
